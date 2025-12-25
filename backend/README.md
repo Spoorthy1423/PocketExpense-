@@ -13,7 +13,22 @@ npm install
 npm start
 ```
 
-Server will run on `http://localhost:8082`
+Server will run on `http://localhost:8082` by default.
+
+## Configuration
+
+### Change Backend Port
+
+**Option 1: Environment Variable (Recommended)**
+```bash
+BACKEND_PORT=3000 npm start
+```
+
+**Option 2: Update Config File**
+- Frontend: Edit `constants/config.ts` and change `BACKEND_PORT`
+- Backend: Edit `server.js` or use environment variable
+
+**Important:** Make sure both frontend and backend use the same port!
 
 ## API Endpoints
 

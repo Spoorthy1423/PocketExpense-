@@ -1,8 +1,10 @@
-import NetInfo from "@react-native-community/netinfo";
+import { API_CONFIG } from "@/constants/config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import NetInfo from "@react-native-community/netinfo";
 import { getExpenses } from "./storage";
+
 const PENDING_SYNC_KEY = "PENDING_SYNC_EXPENSES";
-const API_BASE_URL = "http://localhost:8082/api";
+const API_BASE_URL = API_CONFIG.BASE_URL;
 export const isOnline = async (): Promise<boolean> => {
   const state = await NetInfo.fetch();
   return state.isConnected ?? false;

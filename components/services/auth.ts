@@ -1,4 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_CONFIG } from "@/constants/config";
+
 const AUTH_TOKEN_KEY = "AUTH_TOKEN";
 const USER_KEY = "USER_INFO";
 export type User = {
@@ -12,7 +14,7 @@ export const login = async (email: string, password: string): Promise<{ success:
       return { success: false, error: "Email and password are required" };
     }
     try {
-      const response = await fetch("http://localhost:8082/api/auth/login", {
+      const response = await fetch(`${API_CONFIG.BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -47,7 +49,7 @@ export const register = async (email: string, password: string, name: string): P
       return { success: false, error: "All fields are required" };
     }
     try {
-      const response = await fetch("http://localhost:8082/api/auth/register", {
+      const response = await fetch(`${API_CONFIG.BASE_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, name }),

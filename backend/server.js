@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 8082;
+
+const PORT = process.env.BACKEND_PORT || 8082;
 
 app.use(cors());
 app.use(express.json());
